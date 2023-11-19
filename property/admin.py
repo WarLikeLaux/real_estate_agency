@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Flat, Complaint
+from .models import Complaint, Flat
 
 
 @admin.register(Flat)
@@ -8,6 +8,8 @@ class FlatAdmin(admin.ModelAdmin):
     search_fields = ["town", "address", "owner"]
     readonly_fields = ("created_at",)
     list_display = (
+        "owners_phonenumber",
+        "owner_pure_phone",
         "address",
         "price",
         "new_building",
