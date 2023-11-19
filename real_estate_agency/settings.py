@@ -19,6 +19,7 @@ DEBUG = env.bool('DEBUG', True)
 # Application definition
 
 INSTALLED_APPS = [
+    # Django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -27,7 +28,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
+    # My apps
     'property.apps.PropertyConfig',
+
+    # Other apps…
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
