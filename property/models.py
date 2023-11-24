@@ -112,3 +112,6 @@ class Owner(models.Model):
         blank=True,
         help_text='Квартиры в собственности',
     )
+
+    def __str__(self):
+        return self.full_name
