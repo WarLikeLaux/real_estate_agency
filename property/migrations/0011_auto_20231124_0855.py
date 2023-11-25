@@ -10,7 +10,7 @@ def move_backward(apps, schema_editor):
 def link_owners_flats(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.iterator():
         owner = Owner.objects.filter(
             full_name=flat.owner,
             pure_phone_number=flat.owner_pure_phone

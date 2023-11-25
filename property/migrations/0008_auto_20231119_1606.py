@@ -23,14 +23,12 @@ def normalize_phone_number(number):
 
 def move_backward(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
-        flat.owner_pure_phone = None
-        flat.save()
+    Flat.objects.all().update(owner_pure_phone=None)
 
 
 def normalize_flat_numbers(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.iterator():
         if not is_valid_phone_number(flat.owners_phonenumber):
             continue
         flat.owner_pure_phone = normalize_phone_number(
