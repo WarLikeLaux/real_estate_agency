@@ -17,7 +17,6 @@ def normalize_phone_number(number):
         parsed_number,
         phonenumbers.PhoneNumberFormat.NATIONAL
     )
-    formatted_number = formatted_number.replace("+7", "8")
     return formatted_number
 
 
